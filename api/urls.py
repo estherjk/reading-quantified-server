@@ -1,5 +1,9 @@
 from django.conf.urls import url, include
 from rest_framework import routers
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 from books.views import BookViewSet, GenreViewSet
 
@@ -8,8 +12,10 @@ router.register(r'books', BookViewSet)
 router.register(r'genres', GenreViewSet)
 
 # Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
+# Additionally, we include login URLs for the browsable API & token URLs for Simple JWT.
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^token/$', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    url(r'^token/refresh/$', TokenRefreshView.as_view(), name='token_refresh')
 ]
