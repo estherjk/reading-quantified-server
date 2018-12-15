@@ -13,6 +13,7 @@ def index(request):
 class BookViewSet(viewsets.ModelViewSet):
     """
     API endpoint to view / edit books.
+    Note: Use a Genre's Trello ID (trello_id) when populating the 'genres' field.
     """
     queryset = Book.objects.all()
     serializer_class = BookSerializer
