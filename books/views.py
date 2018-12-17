@@ -1,3 +1,4 @@
+from django_filters import rest_framework as filters
 from django.shortcuts import render
 from rest_framework import viewsets
 
@@ -17,6 +18,8 @@ class BookViewSet(viewsets.ModelViewSet):
     """
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    filter_backends = ( filters.DjangoFilterBackend, )
+    filterset_fields = ( 'title', 'trello_id', )
 
 class GenreViewSet(viewsets.ModelViewSet):
     """
@@ -24,3 +27,5 @@ class GenreViewSet(viewsets.ModelViewSet):
     """
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
+    filter_backends = ( filters.DjangoFilterBackend, )
+    filterset_fields = ( 'name', 'trello_id', )
