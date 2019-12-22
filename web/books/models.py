@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 class Genre(models.Model):
@@ -17,3 +18,4 @@ class Book(models.Model):
     date_started = models.DateTimeField()
     date_finished = models.DateTimeField()
     genres = models.ManyToManyField(Genre)
+    cover_attachment = JSONField(default=dict, help_text='Trello card attachment info. See https://developers.trello.com/reference#cardsidattachments.')
