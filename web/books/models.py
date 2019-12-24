@@ -18,4 +18,4 @@ class Book(models.Model):
     date_started = models.DateTimeField()
     date_finished = models.DateTimeField()
     genres = models.ManyToManyField(Genre)
-    cover_attachment = JSONField(default=dict, help_text='Trello card attachment info. See https://developers.trello.com/reference#cardsidattachments.')
+    cover_attachment = JSONField(default=dict, blank=True, help_text='Trello card attachment info. See https://developers.trello.com/reference#cardsidattachments.')
