@@ -6,6 +6,7 @@ class Genre(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=20, unique=True)
     trello_id = models.CharField(max_length=36, unique=True)
+    color = models.CharField(max_length=12, default='')
 
     def __str__(self):
         return '%s' % (self.name)
