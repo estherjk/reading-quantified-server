@@ -6,9 +6,11 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
+from accounts.views import UserViewSet
 from books.views import BookViewSet, GenreViewSet
 
 router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
 router.register(r'books', BookViewSet)
 router.register(r'genres', GenreViewSet)
 
