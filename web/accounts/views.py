@@ -11,6 +11,8 @@ from .serializers import UserSerializer
 
 class UserViewSet(mixins.ListModelMixin,
                   mixins.RetrieveModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
     """
     API endpoint for users. Can only view / edit yourself!
