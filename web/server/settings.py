@@ -159,8 +159,8 @@ REST_FRAMEWORK = {
 # https://github.com/davesque/django-rest-framework-simplejwt
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=24),
-    'REFRESH_TOKEN_LIFETIME': timedelta(hours=24),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=int(os.getenv('ACCESS_TOKEN_LIFETIME_IN_HOURS'))),
+    'REFRESH_TOKEN_LIFETIME': timedelta(hours=int(os.getenv('REFRESH_TOKEN_LIFETIME_IN_HOURS'))),
 }
 
 
